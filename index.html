@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업 카페에 오신 것을 환영합니다!</title>
+    <style>
+       /* 이서윤체 폰트 적용을 위한 코드 */
+       @font-face {
+        font-family: "LeeSeoyun";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      } 
+
+    /* body태그 자체에 css 요소 부여 */
+        body {
+            font-family: "LeeSeoyun";
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-image: url("./back(1).png");
+            background-size: cover;
+        }
+
+    /* 너비는 390픽셀이구, 배경색이 좀 필요하고 부모(body) 높이 전체를 쓸거야 */
+
+        .container {
+            width: 1000px;
+            background-color:rgba(231, 52, 79, 1);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+  
+    /* 위로 여유가 30픽셀 정도 있었으면 좋겠네 */
+
+        .photos {
+            margin-top: 30px;
+            height: auto;
+            background-size: cover;
+            position: center;
+        }
+
+        .top {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    /* 아래 영역의 제목 부분은 폰트가 좀 두껍고, 사이즈는 25픽셀! 흰색으로 */
+        .t-title {
+            font-size: 100px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 35px; /* 여기에 원하는 간격을 지정하세요 */
+
+        }
+
+    /* 아래 영역의 날짜 부분은 폰트가 중간 두께고, 사이즈는 15픽셀! 흰색으로 */
+        .t-context {
+            font-size: 50px;
+            font-weight: 700;
+            color: white;
+            margin-top: 0; /* 기본 마진 제거 */
+        }
+
+        #nameForm {
+            font-size: 30px;
+            font-weight: 500;
+            color: white;
+        }
+
+        #birthdayForm {
+            font-size: 30px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .coding-day {
+            font-size: 40px;
+            font-weight: 500;
+            color: #fde54e;
+        }
+
+        .connection-info {
+            font-size: 40px;
+            font-weight: 500;
+            color: #fde54e;
+        }
+
+        .connection-infor {
+            font-size: 40px;
+            font-weight: 500;
+            color: #fde54e;
+        }
+
+        .coding-dday {
+            font-size: 40px;
+            font-weight: 500;
+            color: #fde54e;
+        }
+
+        .quiz {
+            font-size: 40px;
+            font-weight: 550;
+            color: #fde54e;
+        }
+
+        .welcome-message {
+            font-size: 40px;
+            font-weight: 500;
+            color: #fde54e;
+        }
+
+        .coding-dddayyy {
+            font-size: 45px;
+            font-weight: 600;
+            color: #fefefd;
+            background-color: rgba(14, 95, 76, 1);
+        }
+
+        .coding-ddday {
+            font-size: 40px;
+            font-weight: 500;
+            color: #fde54e;   
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 13px 23px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <p class="t-title">코 딩 환 향</p>
+            <p class="t-context">팝업 카페에 오신 것을 환영하오!</p>
+        </div>
+        <br>
+        <br>
+        <br>
+
+    <div>
+         <!-- 사용자의 이름을 입력하는 폼 -->
+    <form id="nameForm"> 
+        <div style='text-align: center;'><span class='quiz'>앞으로 험난한 여정이 기다리고 있을텐데 도전할 용기가 있소?!</span><br><br>
+        <label for="userName">용기가 있다면 당신의 존함을 알려주시오</label>
+        <br><br>
+        </div>
+        <div style="text-align: center;">
+        <input type="text" id="userName" name="userName">
+        <br><br>
+        <button type="submit">확인</button>
+        </div>
+    </form>
+
+        <!-- 사용자의 생일을 입력하는 폼 -->
+    <form id="birthdayForm" style="display:none;" onsubmit="handleBirthdayFormSubmission(event)">
+        <div style="text-align: center; margin-bottom: 10px;">
+            <label for="userBirthdayMonth">당신의 생일 달을 입력하시오 (예: 5)</label>
+            <br>
+            <br>
+            <input type="text" id="userBirthdayMonth" name="userBirthdayMonth">
+        </div>
+        <br>
+        <div style="text-align: center;">
+            <label for="userBirthdayDay">당신의 생일 일자를 입력하시오 (예: 27)</label>
+            <br><br>
+            <input type="text" id="userBirthdayDay" name="userBirthdayDay">
+        </div>
+        <br>
+         <!-- 버튼을 가운데 정렬 -->
+        <div style="text-align: center;">
+            <button type="submit">확인</button>
+        </div>
+    </form>
+
+
+    <!-- 결과를 표시할 영역 -->
+    <div id="output"></div>
+
+    <!-- JavaScript 코드 -->
+    <script>
+        // 이름을 저장할 변수
+        var userName;
+        // 생일을 저장할 변수
+        var userBirthday;
+
+        // 이름을 입력하는 폼 제출 시 실행되는 함수
+        document.getElementById('nameForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 기본 동작 방지
+
+            // 사용자가 입력한 이름을 가져와서 변수에 저장
+            userName = document.getElementById('userName').value;
+
+            // 이름 입력 폼 숨기고 생일 입력 폼 보이기
+            document.getElementById('nameForm').style.display = 'none';
+            document.getElementById('birthdayForm').style.display = 'block';
+
+            // 환영 메시지 표시
+displayMessage(`<span class="welcome-message" style="display: block; text-align: center;">환영하오, ${userName} 님!</span>`);
+
+        });
+
+        // 생일을 입력하는 폼 제출 시 실행되는 함수
+        document.getElementById('birthdayForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 기본 동작 방지
+
+            // 사용자가 입력한 생일 월과 일을 가져와서 변수에 저장
+            var userBirthdayMonth = parseInt(document.getElementById('userBirthdayMonth').value);
+            var userBirthdayDay = parseInt(document.getElementById('userBirthdayDay').value);
+
+            // 사용자의 생일을 오늘 날짜와 비교하여 새로운 Date 객체 생성
+            var today = new Date();
+            userBirthday = new Date(today.getFullYear(), userBirthdayMonth - 1, userBirthdayDay); // 생일 월은 0부터 시작하므로 -1
+
+            // 생일 입력 폼 숨기기
+            document.getElementById('birthdayForm').style.display = 'none';
+
+            // 생일 차이 계산 및 메시지 표시
+            calculateAgeDifference();
+        });
+
+        // 생일 차이를 계산하고 메시지를 표시하는 함수
+        function calculateAgeDifference() {
+            // 오늘 날짜를 가져옴
+            var today = new Date();
+            // 10월 10일 날짜를 가져옴
+            var oct10 = new Date(today.getFullYear(), 9, 10); // 10월은 0부터 시작하므로 9로 설정
+
+            // 결과 메시지 생성
+                
+
+            // 생일 차이 계산
+            var diff = Math.abs(oct10 - userBirthday);
+            var diffDays = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+            // 결과 메시지에 생일과 10월 10일 사이의 날짜 차이를 추가
+       // 결과 메시지 생성
+       var message = "<div style='text-align: center;'><span class='coding-day'>1과 0이 만나는 10월 10일은 코딩의 날이오.</span><br>";
+            message += "<div style='margin-top: 20px;'><span class='coding-ddday'>이 정보는 앞으로의 여정에 도움이 될 수 있으니 새겨두오.</span></div><br><br><br>";
+            message += "<div style='margin-top: 20px;'><span class='coding-dddayyy'>자네의 도전력에 감탄하였도다! 이 시험은 통과요~</span></div><br><br><br><br>";
+            message += `<span class='connection-infor'> 자네의 탄신일을 살펴보니 코딩과의 운명 숫자는 ${diffDays}였소.</span></div>`;
+            message += "<div style='margin-top: 20px;'><span class='coding-dday'>좋은 징조인 것 같으니 계속하여 당신의 길을 개척해 나아가시오.</span></div>";
+
+
+
+            // 결과 메시지 출력
+            displayMessage(message);
+        }
+
+        // 결과를 출력하는 함수
+        function displayMessage(message) {
+            var outputDiv = document.getElementById('output');
+            outputDiv.innerHTML = `<div style="text-align: center;">${message}<br><br></div>`;
+        }
+        
+    </script>
+    </div>
+    </div>
+
+</body>
+</html>
